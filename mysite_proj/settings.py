@@ -120,6 +120,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+PORTAL_URL = 'http://localhost:8000'
 
 
 
@@ -141,3 +144,5 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+print DEBUG

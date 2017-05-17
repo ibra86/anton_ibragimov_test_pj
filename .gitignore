@@ -3,5 +3,4 @@ staticfiles
 local_settings.py
 db.sqlite3
 *.py[co]
-base.html
-note_list.html
+note_list0.html
