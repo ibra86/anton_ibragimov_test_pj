@@ -1,0 +1,37 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$TDZ1Ti8IuB6T$XVx4tRJiVgJa90j7ukiyrtX2PiLtepuYCaT6LT1PMB4=",
+        "last_login": "2017-05-18T19:31:28.653",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "ibrahimov.ag@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2017-05-18T19:31:24.129",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "yq337ydv6b25yrop4qypqp0om5e4fdap",
+    "fields": {
+        "session_data": "ZGExYjlhOWIxZjc4OWVjY2Q1YzQyZjk1OTk0Mzk3YjkzZjJkOTQxYjp7Il9hdXRoX3VzZXJfaGFzaCI6IjcwNjhjMzY4OGY5MDQ0YjYxMWQxNzU2MGJjMDZkMTljMTMwZWNlOTMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-06-01T19:31:28.742"
+    }
+},
+{
+    "model": "notes_app.note",
+    "pk": 1,
+    "fields": {
+        "title": "Lorem ipsum dolor sit amet",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. \r\n\r\nSed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+        "published_date": "2017-05-18T19:31:31"
+    }
+}
+]
