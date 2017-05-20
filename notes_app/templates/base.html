@@ -30,8 +30,8 @@
                 <!-- <div class="page-header"> -->
                 <div class="row" id="page-header">
                         <div class="col-xs-8">
-                                {% comment %} <a href="{% url 'note_new' %}" class='top-menu'>{% endcomment %}
-                                <a href="#">
+                                 <a href="{% url 'add_note' %}" class='top-menu'>
+                                {% comment %}<a href="#">{% endcomment %}
                                         <span class='glyphicon glyphicon-plus'>
                                         </span>
                                 </a>
@@ -53,6 +53,9 @@
                                  {% endblock %}
                         </div>
                 </div>
+
+				{% block content2 %}
+				{% endblock %}
 
 
                 <!-- Javascripts Inclusion -->
