@@ -1,13 +1,10 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 from .models import Note
 from .forms import NoteForm
 from django.utils import timezone
 
-from django.shortcuts import render, redirect, get_object_or_404
-# from django.http import HttpResponse,HttpResponseRedirect
-# from django.urls import reverse
+from django.shortcuts import redirect
 
 
 # Create your views here.

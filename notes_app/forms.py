@@ -7,9 +7,8 @@ class UppercaseCharField(forms.CharField):
 
 class NoteForm(forms.ModelForm):
     title = UppercaseCharField(widget=forms.TextInput(attrs={'class':'form-control'}), max_length=200)
-    # title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}), max_length=200)
     text = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}), min_length=10)
 
     class Meta:
         model = Note
-        fields = ["title","text"]#,"photo"]
+        fields = ["title","text"]
