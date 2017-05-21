@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
 	<h1>New note</h1>
-	<form method="POST" class="form-horizontal">
+	<form method="POST" class="form-horizontal" id="id-note-form">
 		{% csrf_token %}
 		{% if form.errors %}
      	<div class="alert alert-warning" role="alert">
