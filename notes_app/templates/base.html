@@ -3,67 +3,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-        <head>
-                <title>Notes</title>
+	<head>
+		<title>Notes</title>
 
-                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-                <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-                <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        </head>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	</head>
 
-        {% comment %} <body data-portal_url = "{{ PORTAL_URL }}"> <!-- to be accessible by JS -->{% endcomment %}
-        <body>
+	<body>
+		{# Notes number block #}
+		<div class="col-xs-9"></div>
+		<div class="col-xs-3">
+			<div class="note-num">
+				Number of notes:
+				<span id="noteNumber" class="badge">{{ notes_num }}</span>
+			</div>
+		</div>
 
-                <div class="col-xs-9">
-                </div>
-                <div class="col-xs-3">
-                        <div class="note-num">
-                                {% comment %} Number of notes:
-                                        <span id="noteNumber" class="badge">{{ note_num }}</span>{% endcomment %}
-                        </div>
-                </div>
+		{# Page header #}
+		<div class="row" id="page-header">
+			<div class="col-xs-8">
+				<a href="{% url 'add_note' %}" class='top-menu'>
+					<span class='glyphicon glyphicon-plus'></span>
+				</a>
+				<h1> <a href="/">Notes</a></h1>
+			</div>
+			<div class="col-xs-4">
+			<br>
+			</div>
+		</div>
 
-                {% comment %} {% include 'sup_header.html' %}{% endcomment %}
-
-
-                <!-- <div class="page-header"> -->
-                <div class="row" id="page-header">
-                        <div class="col-xs-8">
-                                 <a href="{% url 'add_note' %}" class='top-menu'>
-                                {% comment %}<a href="#">{% endcomment %}
-                                        <span class='glyphicon glyphicon-plus'>
-                                        </span>
-                                </a>
-                                <h1> <a href="/">Notes</a></h1>
-                        </div>
-                        <div class="col-xs-4">
-                        </br>
-                        {% comment %}{% url 'home' as url_home %}
-                        {% if request.path == url_home %}
-                                {% include 'widget_block.html' %}
-                        {% endif %}{% endcomment %}
-                        </div>
-                </div>
-
-
-                <div class="content container">
-                        <div class="row" id="page-content">
-                                 {% block content %}
-                                 {% endblock %}
-                        </div>
-                </div>
-
-				{% block content2 %}
+		{# Main content #}
+		<div class="content container">
+			<div class="row" id="page-content">
+				{% block content %}
 				{% endblock %}
+			</div>
+		</div>
 
-
-                <!-- Javascripts Inclusion -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-        <script src="//cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="{% static 'js/main.js' %}"></script>
-
-        </body>
+	</body>
 </html>
