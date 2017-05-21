@@ -77,12 +77,10 @@ class TestNoteList(TestCase):
 		self.assertContains(response2,'<span id="noteNumber" class="badge">'+str(cur_notes_num)+'</span>', html=True)
 		self.assertContains(response3,'<span id="noteNumber" class="badge">'+str(cur_notes_num)+'</span>', html=True)
 
-
 		#if new note is added
 		response4 = self.client.post(reverse('add_note'), {'title':'new_title', 'text':'new_text_xxxxxxx'})
 		add_to_notes_num = len(Note.objects.all())
 		self.assertEqual(cur_notes_num+1,add_to_notes_num)
-
 
 		#if DB is empty
 		Note.objects.all().delete()
