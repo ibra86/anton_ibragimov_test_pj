@@ -12,7 +12,8 @@ function initNewNote(){
 },
 error : function(xhr,errmsg,err) {
                             alert(xhr.status + ": " + xhr.responseText);
-  });
+  }
+});
 }
 
 // function initNewRequestStat(){

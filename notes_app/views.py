@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView
 from .models import Note
 from .forms import NoteForm
@@ -32,4 +32,6 @@ class AddNote(CreateView):
 			pass
 		return redirect('note_detail', pk=self.note.pk)
 
+class WidgetTemplate(TemplateView):
+	template_name = 'widget_example.html'
 

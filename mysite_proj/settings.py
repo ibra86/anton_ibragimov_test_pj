@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'notes_app.context_processors.notes_num',
+                'notes_app.context_processors.portal_url',
             ],
         },
     },
@@ -131,7 +132,7 @@ USE_TZ = False
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-PORTAL_URL = 'http://localhost:8000'
+# PORTAL_URL = 'http://localhost:8000'
 
 
 

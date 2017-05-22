@@ -29,8 +29,14 @@
 				</a>
 				<h1> <a href="/">Notes</a></h1>
 			</div>
+
+			{# widget field #}
 			<div class="col-xs-4">
-	            <br>
+            <br>
+            {% url 'home' as url_home %}
+            {% if request.path == url_home %}
+                {% include 'widget_block.html' %}
+            {% endif %}
             </div>
 		</div>
 

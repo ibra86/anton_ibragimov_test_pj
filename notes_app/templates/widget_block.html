@@ -1,0 +1,15 @@
+{% load static from staticfiles %}
+
+<span><a href="{% url 'widget_example' %}">Random note widget:</a></span>
+<div id="random_widget" class="well">
+  {% comment %}<script src="http://localhost:8000/static/js/widget.js"></script>{% endcomment %}
+  <script src='{% static "js/widget.js" %}'></script>
+  <script>
+    document.write('&lt;div id="widget-container"&gt;&lt;/div&gt;');
+  </script>
+</br>
+  <script>
+  document.write('&lt;script src=&quot;{{ PORTAL_URL }}{% static "js/widget.js" %}&quot;&gt;&lt;/script&gt;');
+</script>
+  <!-- <p id="widget-text"></p> -->
+</div>
