@@ -9,7 +9,7 @@ var portal_url = (function(){
 })();
 
 	var script_tag = document.createElement('script');
-	script_tag.setAttribute("src","https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js");
+	script_tag.setAttribute("src","//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js");
 
 	// console.log(scriptLoadHandler);
 	script_tag.onload = scriptLoadHandler;
