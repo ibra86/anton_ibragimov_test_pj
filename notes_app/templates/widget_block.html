@@ -2,7 +2,6 @@
 
 <span><a href="{% url 'widget_example' %}">Random note widget:</a></span>
 <div id="random_widget" class="well">
-  {% comment %}<script src="http://localhost:8000/static/js/widget.js"></script>{% endcomment %}
   <script src='{% static "js/widget.js" %}'></script>
   <script>
     document.write('&lt;div id="widget-container"&gt;&lt;/div&gt;');

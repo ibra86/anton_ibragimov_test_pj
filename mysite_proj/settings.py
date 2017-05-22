@@ -145,7 +145,7 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = 'staticfiles'
 
-# DEBUG = False
+DEBUG = False
 
 
 try:
