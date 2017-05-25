@@ -21,6 +21,8 @@
 			</div>
 		</div>
 
+		{% include 'sup_header.html' %}
+
 		{# Page header #}
 		<div class="row" id="page-header">
 			<div class="col-xs-8">
@@ -32,7 +34,7 @@
 
 			{# widget field #}
 			<div class="col-xs-4">
-            <br>
+            <br/>
             {% url 'home' as url_home %}
             {% if request.path == url_home %}
                 {% include 'widget_block.html' %}

@@ -1,0 +1,10 @@
+
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+{{ block.super }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+{% endblock %}

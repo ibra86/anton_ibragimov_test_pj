@@ -1,0 +1,42 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Requests </title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+    <!-- dummy line -->
+    <div class="note-num"></div>
+    {% include 'sup_header.html' %}
+
+    <br/>
+    <div class="container">
+        {% for request in requests %}
+        <span class="label label-info label-as-badge" id="req_id">{{ request.id }}</span>
+        <span class="label label-info label-as-badge" id="req_time">{{ request.time }}</span>
+        <span class="label label-info label-as-badge" id="req_line">{{ request.line }}</span>
+        <br/>
+        <br/>
+        {% endfor %}
+    </div>
+
+    <!-- Javascripts Inclusion -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'js/requests.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

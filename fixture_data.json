@@ -3,8 +3,8 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$24000$TDZ1Ti8IuB6T$XVx4tRJiVgJa90j7ukiyrtX2PiLtepuYCaT6LT1PMB4=",
-        "last_login": "2017-05-20T17:03:35.891",
+        "password": "pbkdf2_sha256$24000$8B3eTVps4S39$4+leth8Lz/AxNd5LSnMjbqKOF5HP8ZeYwnJ4SENB8tw=",
+        "last_login": "2017-05-25T15:23:27.214",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -19,10 +19,18 @@
 },
 {
     "model": "sessions.session",
-    "pk": "958v9ws2ntzb3f805399l0t7lj1j2xo2",
+    "pk": "9ptf8vd5uzm8aawtv9zcvuz53odc6st0",
     "fields": {
-        "session_data": "ZGExYjlhOWIxZjc4OWVjY2Q1YzQyZjk1OTk0Mzk3YjkzZjJkOTQxYjp7Il9hdXRoX3VzZXJfaGFzaCI6IjcwNjhjMzY4OGY5MDQ0YjYxMWQxNzU2MGJjMDZkMTljMTMwZWNlOTMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
-        "expire_date": "2017-06-03T17:03:36.042"
+        "session_data": "NDhiZjI5NThjNTQ2MjZmMjQyNGQ1MjVmMjBiM2RmNTU4Y2RiNWRkODp7Il9hdXRoX3VzZXJfaGFzaCI6ImVjODNiOGMzMmQ2OWM1YzZhZDdiYzU0Y2Y1ZWZlMGFiMzk5OWViNTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-06-05T22:33:22.363"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "cqq2k8fhf5c6710rv94bn8pzxjmz63yw",
+    "fields": {
+        "session_data": "NDhiZjI5NThjNTQ2MjZmMjQyNGQ1MjVmMjBiM2RmNTU4Y2RiNWRkODp7Il9hdXRoX3VzZXJfaGFzaCI6ImVjODNiOGMzMmQ2OWM1YzZhZDdiYzU0Y2Y1ZWZlMGFiMzk5OWViNTQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+        "expire_date": "2017-06-08T15:23:27.296"
     }
 },
 {
@@ -71,6 +79,350 @@
         "text": "blablabla...",
         "published_date": "2017-05-20T17:05:43.289",
         "photo": "./zhdun.png"
+    }
+},
+{
+    "model": "notes_app.book",
+    "pk": 1,
+    "fields": {
+        "title": "Jungle Book"
+    }
+},
+{
+    "model": "notes_app.book",
+    "pk": 2,
+    "fields": {
+        "title": "ABC"
+    }
+},
+{
+    "model": "notes_app.bookcontent",
+    "pk": 1,
+    "fields": {
+        "note": 1,
+        "book": 1
+    }
+},
+{
+    "model": "notes_app.bookcontent",
+    "pk": 2,
+    "fields": {
+        "note": 1,
+        "book": 2
+    }
+},
+{
+    "model": "notes_app.bookcontent",
+    "pk": 3,
+    "fields": {
+        "note": 3,
+        "book": 1
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 1,
+    "fields": {
+        "line": "GET /admin/notes_app/ HTTP/1.1",
+        "time": "2017-05-25T15:23:24.436",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 2,
+    "fields": {
+        "line": "GET /admin/login/?next=/admin/notes_app/ HTTP/1.1",
+        "time": "2017-05-25T15:23:24.706",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 3,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T15:23:25.249",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 4,
+    "fields": {
+        "line": "POST /admin/login/?next=/admin/notes_app/ HTTP/1.1",
+        "time": "2017-05-25T15:23:26.613",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 5,
+    "fields": {
+        "line": "GET /admin/notes_app/ HTTP/1.1",
+        "time": "2017-05-25T15:23:27.417",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 6,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T15:23:27.731",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 7,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:09:46.007",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 8,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:09:47.423",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 9,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:09:48.955",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 10,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:09:49.583",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 11,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:09:49.680",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 12,
+    "fields": {
+        "line": "GET /note/2/ HTTP/1.1",
+        "time": "2017-05-25T21:09:50.298",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 13,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:22:36.491",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 14,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:22:36.952",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 15,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:22:37.102",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 16,
+    "fields": {
+        "line": "GET /note/4/ HTTP/1.1",
+        "time": "2017-05-25T21:22:37.131",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 17,
+    "fields": {
+        "line": "GET /note/add/ HTTP/1.1",
+        "time": "2017-05-25T21:22:38.812",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 18,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:22:39.362",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 19,
+    "fields": {
+        "line": "POST /note/add/ HTTP/1.1",
+        "time": "2017-05-25T21:22:42.995",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 20,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:22:43.816",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 21,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:22:44.802",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 22,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:22:45.300",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 23,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:22:58.974",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 24,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:22:59.919",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 25,
+    "fields": {
+        "line": "GET /note/1/ HTTP/1.1",
+        "time": "2017-05-25T21:23:00.279",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 26,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:23:00.304",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 27,
+    "fields": {
+        "line": "GET /widget-example HTTP/1.1",
+        "time": "2017-05-25T21:23:02.692",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 28,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:23:03.513",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 29,
+    "fields": {
+        "line": "GET /note/4/ HTTP/1.1",
+        "time": "2017-05-25T21:23:03.802",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 30,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:23:03.819",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 31,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:23:14.101",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 32,
+    "fields": {
+        "line": "GET / HTTP/1.1",
+        "time": "2017-05-25T21:23:14.529",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 33,
+    "fields": {
+        "line": "GET /requests/ HTTP/1.1",
+        "time": "2017-05-25T21:23:14.642",
+        "is_new": false
+    }
+},
+{
+    "model": "notes_app.requeststat",
+    "pk": 34,
+    "fields": {
+        "line": "GET /note/2/ HTTP/1.1",
+        "time": "2017-05-25T21:23:14.700",
+        "is_new": false
     }
 }
 ]
