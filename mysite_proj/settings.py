@@ -102,12 +102,15 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [(redis_host, 6379)],
+#             "hosts": [(redis_host, 6379)],
+            "hosts": [os.environ.get('REDIS_URL','redis://localhost:6379')],
         },
        "ROUTING": "mysite_proj.routing.channel_routing",
     },
 }
 
+for k,v in os.environ.iteritems():
+    print k,":",v
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
