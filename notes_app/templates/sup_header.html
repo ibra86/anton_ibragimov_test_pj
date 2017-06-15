@@ -1,0 +1,9 @@
+<div class="row" id="sup-header">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills nav-sutified">
+            {% url 'home' as url_home %} {% url 'requests' as url_requests %}
+            <li {% if request.path == url_home %}class="active" {% endif %}><a href="{{ url_home }}">Home</a></li>
+            <li {% if request.path == url_requests %}class="active" {% endif %} id="id-req-button"><a href="{{ url_requests }}">Requests</a></li>
+        </ul>
+    </div>
+</div>
