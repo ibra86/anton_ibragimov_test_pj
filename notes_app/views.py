@@ -1,10 +1,9 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView
-from .models import Note, RequestStat
+from .models import Note
 from .forms import NoteForm
 from django.utils import timezone
-from django.http import JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -30,7 +29,8 @@ class AddNote(CreateView):
         self.note.published_date = timezone.now()
         self.note.save()
         if self.request.is_ajax():
-            print "AJAX request"
+            pass
+            # print "AJAX request"
         return redirect('note_detail', pk=self.note.pk)
 
 
@@ -38,18 +38,5 @@ class WidgetTemplate(TemplateView):
     template_name = 'widget_example.html'
 
 
-def requests(request):
-    requests = RequestStat.objects.all().order_by('-id')[:10]
-    print 'REQUEST VIEW:'
-#     from channels.channel import Group
-#     import time
-#     time.sleep(1)
-#     Group("chat").send({'text':'from view'})
-    # 
-#     if request.is_ajax():
-#         new_req_num = len(RequestStat.objects.filter(is_new=True))
-#         req_stat = [str(k) for k in requests]
-#         RequestStat.objects.filter(is_new=True).update(is_new=False)
-#         return JsonResponse({'new_req_num': new_req_num, 'req_stat': req_stat})
-
-    return render(request, 'requests.html', {'requests': requests})
+class RequestStat(TemplateView):
+    template_name = 'requests.html'

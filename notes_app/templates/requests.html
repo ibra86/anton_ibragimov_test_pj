@@ -18,112 +18,26 @@
     {% include 'sup_header.html' %}
 
     <br/>
-    
+
     <div class="container">
-        <div class="page-header"> 
+        <div class="page-header">
             <h1>Requests list:<h1>
         </div>
     </div>
 
     <div class="container" id="req-list-id">
-    {% comment %}
-        {% for request in requests %}
-        <span class="label label-info label-as-badge" id="req_id">{{ request.id }}</span>
-        <span class="label label-info label-as-badge" id="req_time">{{ request.time }}</span>
-        <span class="label label-info label-as-badge" id="req_line">{{ request.line }}</span>
-        <br/>
-        <br/>
-        {% endfor %}
-    {% endcomment %}
+        {# list of request data from ws#}
     </div>
 
     <!-- Javascripts Inclusion -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="//cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 <!--     <script src="{% static 'js/requests.js' %}"></script> -->
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/ws_request.js' %}"></script>
-    <script>
-
-    
-    
-    var non_viewed_req_num = 0;
-    
-        ws.onmessage = function(event){
-        var d1 = new Date();
-        d1.setHours(d1.getHours()+2); 
-	    var time1 = d1.toISOString().split('T')[1];
-//     	debugger;
-        
-
-//     	console.log('Message-request - ' + event.data + ' - ' + time1);
-//             $('.container .page-header>h1:first-child').append(' - ' + time1 + ' rq');
-
-        
-
-        var request_data = JSON.parse(event.data);
-        var req = request_data.req_stat;
-        var new_req_num = request_data.new_req_num + non_viewed_req_num;
-            non_viewed_req_num = new_req_num;
-        var req_page_path = request_data.req_page_path;
-        console.log(Object.keys(request_data));
-
-    var requestsList = $('#req-list-id');
-    var content = '';
-
-    $.each(req, function(index, value) {
-    
-
-        var req_array = value.split(" -- ",4);
-        x= req_array[3];
-        k = x.split(": ")[1]=="True"? "New!": "";
-
-content += ' \
-<div class="col-xs-8"> \
-<span class="label label-info label-as-badge" id="req_id">'+req_array[0]+'</span>\
-<span class="label label-info label-as-badge" id="req_time">'+req_array[2]+'</span>\
-<span class="label label-info label-as-badge" id="req_line">'+req_array[1]+'</span>\
-</div> \
-<div class="col-xs-4"> \
-<span class="label label-info label-as-badge" id="req_new">New!</span>\
-</div> \
-<br/>\
-<br/>'
-});
-
-     requestsList.html(content);
-    
-    $(".container  span#req_id:lt(" + new_req_num + ")").css("background-color", "lime");
-    $(".container  span#req_time:lt(" + new_req_num + ")").css("background-color", "lime");
-    $(".container  span#req_line:lt(" + new_req_num + ")").css("background-color", "lime");
-    $(".container  span#req_new:lt(" + new_req_num + ")").css({"background-color": "lightgrey", 
-                                                                "color":"DimGray"});
-    $(".container  span#req_new:gt(" + (new_req_num-1) + ")").text('');
-
-// console.log($('.container .page-header>h1:first-child').html("Requests list: "+new_req_num));
-
-$("title").html("(" + new_req_num+ ") Requests");
-setTimeout(function(){
-    if (req_page_path == '/requests/'){
-    $("title").html("Requests");
-    non_viewed_req_num = 0;
-    };
-},500);
-
-window.addEventListener("focus", function(event) {
-    $("title").html("Requests");
-    non_viewed_req_num = 0;
-
-    }, false);
-
-    
-    	
-    	};
-
-    </script>
+    <script src="{% static 'js/requests.js' %}"></script>
 
 </body>
 
