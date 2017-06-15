@@ -1,12 +1,11 @@
 from django.conf.urls import url
 from django.contrib import admin
-from notes_app.views import NoteList, NoteDetail, AddNote, WidgetTemplate
+from notes_app.views import NoteList, NoteDetail, AddNote, WidgetTemplate, RequestStat
 
-from .settings import STATIC_URL, MEDIA_URL, MEDIA_ROOT, DEBUG
+from .settings import STATIC_URL, MEDIA_URL, MEDIA_ROOT#, DEBUG
 from django.conf import settings
 from django.conf.urls.static import static
 
-from notes_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -14,7 +13,7 @@ urlpatterns = [
     url(r'^note/(?P<pk>[0-9]+)/$', NoteDetail.as_view(), name='note_detail'),
     url(r'^note/add/$', AddNote.as_view(), name='add_note'),
     url(r'^widget-example$', WidgetTemplate.as_view(), name='widget_example'),
-    url(r'^requests/$', views.requests, name='requests')
+    url(r'^requests/$', RequestStat.as_view(), name='requests')
 ] + static(STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # if DEBUG:

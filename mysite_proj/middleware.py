@@ -8,7 +8,7 @@ class RequestStatMiddleware(object):
         time_request = timezone.now()
         line_request = str(request.method) + " " \
             + str(request.get_full_path()) + " " \
-            + str(request.META.get('SERVER_PROTOCOL','HTTP/2'))
+            + str(request.META.get('SERVER_PROTOCOL', 'HTTP/2'))
 
         request_stat = RequestStat(
             line=line_request,

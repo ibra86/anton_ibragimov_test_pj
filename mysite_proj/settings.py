@@ -92,21 +92,26 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+<<<<<<< HEAD
 # redis_host = os.environ.get('REDIS_HOST', 'localhost')
 
+=======
+>>>>>>> t10_db_requests_page_async
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-#             "hosts": [(redis_host, 6379)],
-            "hosts": [os.environ.get('REDIS_URL','redis://localhost:6379')],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
-       "ROUTING": "mysite_proj.routing.channel_routing",
+        "ROUTING": "mysite_proj.routing.channel_routing",
     },
 }
 
+<<<<<<< HEAD
 # for k,v in os.environ.iteritems():
 #     print k,":",v
+=======
+>>>>>>> t10_db_requests_page_async
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'

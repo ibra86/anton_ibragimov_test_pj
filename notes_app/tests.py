@@ -1,9 +1,11 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 from models import Note, Book, BookContent
-
+from channels import Group
+from channels.test import ChannelTestCase
 
 # Create your tests here.
+
 
 class TestNoteList(TestCase):
 
@@ -43,8 +45,8 @@ class TestNoteList(TestCase):
 
         self.assertEqual(response1.status_code, 200)
 
-        response2 = self.client.post(reverse('add_note'), {'title': 'new_title',
-                                                           'text': 'new_text_xxxxxxx'})
+        self.client.post(reverse('add_note'), {'title': 'new_title',
+                                               'text': 'new_text_xxxxxxx'})
         last_note = Note.objects.all().last()
         # print Note.objects.all().get(id=2).published_date
         self.assertEqual(last_note.title, 'new_title'.upper())
@@ -54,14 +56,14 @@ class TestNoteList(TestCase):
             reverse('note_detail', kwargs={'pk': last_note.pk})).status_code, 200)
 
         # note was not added to DB, len(text) is not validate
-        response3 = self.client.post(reverse('add_note'), {'title': 'new_title2',
-                                                           'text': 'new_text'})
+        self.client.post(reverse('add_note'), {'title': 'new_title2',
+                                               'text': 'new_text'})
         last_note = Note.objects.all().last()
         self.assertNotEqual(last_note.title, 'new_title2')
 
     def test_upper_case_custom_field(self):
-        response = self.client.post(reverse('add_note'), {'title': 'new_title',
-                                                          'text': 'new_text_xxxxxxx'})
+        self.client.post(reverse('add_note'), {'title': 'new_title',
+                                               'text': 'new_text_xxxxxxx'})
         last_note = Note.objects.all().last()
         self.assertEqual(last_note.title, 'new_title'.upper())
 
@@ -81,7 +83,7 @@ class TestNoteList(TestCase):
                             str(cur_notes_num) + '</span>', html=True)
 
         # if new note is added
-        response4 = self.client.post(
+        self.client.post(
             reverse('add_note'), {'title': 'new_title', 'text': 'new_text_xxxxxxx'})
         add_to_notes_num = len(Note.objects.all())
         self.assertEqual(cur_notes_num + 1, add_to_notes_num)
@@ -164,10 +166,14 @@ class TestNoteList(TestCase):
         num_books = len(Book.objects.all())
         note1.delete()
         self.assertEqual(num_books - 1, len(Book.objects.all()))
+<<<<<<< HEAD
         
 
 from channels import Group
 from channels.test import ChannelTestCase
+=======
+
+>>>>>>> t10_db_requests_page_async
 
 class AsynTest(ChannelTestCase):
 
@@ -175,6 +181,10 @@ class AsynTest(ChannelTestCase):
         Group('test_group').add(u'test_channel')
         Group('test_group').send({"value": 999})
         result = self.get_next_message(u'test_channel', require=True)
+<<<<<<< HEAD
         self.assertEqual(result['value'],999)
         
         
+=======
+        self.assertEqual(result['value'], 999)
+>>>>>>> t10_db_requests_page_async
