@@ -17,5 +17,5 @@ urlpatterns = [
     url(r'^requests/$', views.requests, name='requests')
 ] + static(STATIC_URL, document_root=settings.STATIC_ROOT)
 
-if DEBUG:
+# if DEBUG:
 urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
