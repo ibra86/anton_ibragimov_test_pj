@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
-from models import Note, Book, BookContent
+from models import Note
 
 # Create your tests here.
 
@@ -146,21 +146,3 @@ class TestNoteList(TestCase):
         # ther is photo
         note_pk1 = Note.objects.get(pk=1)
         self.assertTrue(bool(note_pk1.photo))
-
-    def test_book_to_notes_many_to_many(self):
-
-        note1 = Note.objects.create(title='new_title',
-                                    text='new_text_xxxxxxx')
-        book1 = Book.objects.create(title='ABC')
-
-        BookContent.objects.create(note=note1, book=book1)
-
-        # check if BookContent is non empty
-        book_content1 = BookContent.objects.last()
-        self.assertIn('new_title', unicode(book_content1))
-        self.assertIn('ABC', unicode(book_content1))
-
-        # check if book is deleted when it is empty
-        num_books = len(Book.objects.all())
-        note1.delete()
-        self.assertEqual(num_books - 1, len(Book.objects.all()))

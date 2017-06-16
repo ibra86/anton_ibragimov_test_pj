@@ -15,41 +15,5 @@ class Note(models.Model):
     class Meta:
         ordering = ['pk']
 
-    def delete(self):
-        # book to keep
-        bk_keep = BookContent.objects.exclude(
-            note_id__in=[self.id]).values_list('book_id', flat=True)
-        # others - to delete
-        Book.objects.exclude(id__in=list(bk_keep)).delete()
-        return super(Note, self).delete()
-
     def __unicode__(self):
         return self.title
-
-
-class Book(models.Model):
-
-    title = models.CharField(max_length=200)
-    note = models.ManyToManyField(
-        Note,
-        through='BookContent',
-    )
-
-    class Meta:
-        ordering = ['title']
-
-    def __unicode__(self):
-        return self.title
-
-
-class BookContent(models.Model):
-    note = models.ForeignKey(
-        Note, related_name='book_content', on_delete=models.CASCADE)
-    book = models.ForeignKey(
-        Book, related_name='book_content', on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = ('note', 'book')
-
-    def __unicode__(self):
-        return 'Note "%s" of Book "%s"' % (self.note, self.book)
