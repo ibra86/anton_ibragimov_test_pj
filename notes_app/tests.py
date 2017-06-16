@@ -72,7 +72,8 @@ class TestNoteList(TestCase):
         # checking on different pages
         response = self.client.get(self.home_url)
         response2 = self.client.get(reverse('add_note'))
-        response3 = self.client.get(reverse('note_detail', kwargs={'pk': 1}))
+        response3 = self.client.get(
+            reverse('note_detail', kwargs={'pk': 1}))
         self.assertContains(response, '<span id="noteNumber" class="badge">' +
                             str(cur_notes_num) + '</span>', html=True)
         self.assertContains(response2, '<span id="noteNumber" class="badge">' +
@@ -90,53 +91,3 @@ class TestNoteList(TestCase):
         Note.objects.all().delete()
         del_to_notes_num = len(Note.objects.all())
         self.assertEqual(del_to_notes_num, 0)
-
-    def test_add_note_ajax(self):
-        # test filling form - added to db
-        # test published_date is added
-        # test non valid databases
-        # test redirect to created page
-        # test is_ajax
-        response1 = self.client.get(reverse('add_note'))
-
-        self.assertEqual(response1.status_code, 200)
-
-        response2 = self.client.post(reverse('add_note'), {'title': 'new_title',
-                                                           'text': 'new_text_xxxxxxx'}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        last_note = Note.objects.all().last()
-        # AJAX redirected successfully
-        self.assertEqual(response2.status_code, 302)
-        self.assertEqual(last_note.title, 'new_title'.upper())
-        self.assertEqual(last_note.text, 'new_text_xxxxxxx')
-        self.assertIsNotNone(last_note.published_date)
-        self.assertEqual(self.client.get(
-            reverse('note_detail', kwargs={'pk': last_note.pk})).status_code, 200)
-
-        # note was not added to DB, len(text) is not validate
-        response3 = self.client.post(reverse('add_note'), {'title': 'new_title2',
-                                                           'text': 'new_text'}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        last_note = Note.objects.all().last()
-        # AJAX stayed on the same page
-        self.assertEqual(response3.status_code, 200)
-        self.assertNotEqual(last_note.title, 'new_title2')
-
-    def test_add_note_ajax_image(self):
-        # test filling form - added to db
-        # test published_date is added
-        # test non valid databases
-        # test redirect to created page
-        # test is_ajax
-        response1 = self.client.get(reverse('add_note'))
-
-        self.assertEqual(response1.status_code, 200)
-
-        response2 = self.client.post(reverse('add_note'), {'title': 'new_title',
-                                                           'text': 'new_text_xxxxxxx'}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        last_note = Note.objects.all().last()
-        # AJAX redirected successfully
-        self.assertEqual(response2.status_code, 302)
-        self.assertEqual(last_note.title, 'new_title'.upper())
-        self.assertEqual(last_note.text, 'new_text_xxxxxxx')
-        self.assertIsNotNone(last_note.published_date)
-        self.assertEqual(self.client.get(
-            reverse('note_detail', kwargs={'pk': last_note.pk})).status_code, 200)

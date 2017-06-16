@@ -28,7 +28,4 @@ class AddNote(CreateView):
         self.note = form.save(commit=False)
         self.note.published_date = timezone.now()
         self.note.save()
-        if self.request.is_ajax():
-            pass
-            # print "AJAX request"
         return redirect('note_detail', pk=self.note.pk)
