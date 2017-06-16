@@ -11,8 +11,5 @@ class Note(models.Model):
     text = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
 
-    class Meta:
-        ordering = ['pk']
-
     def __unicode__(self):
         return self.title
