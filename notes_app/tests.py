@@ -1,6 +1,5 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
-from models import Note
 
 # Create your tests here.
 
@@ -33,28 +32,3 @@ class TestNoteList(TestCase):
         self.assertIn('lorem ipsum'.lower(), response.content.lower())
         self.assertIn('consectetur adipiscing elit', response.content)
         self.assertIn('2017', response.content)
-
-    def test_add_note(self):
-        # test filling form - added to db
-        # test published_date is added
-        # test non valid databases
-        # test redirect to created page
-        response1 = self.client.get(reverse('add_note'))
-
-        self.assertEqual(response1.status_code, 200)
-
-        self.client.post(reverse('add_note'), {'title': 'new_title',
-                                               'text': 'new_text_xxxxxxx'})
-        last_note = Note.objects.all().last()
-        # print Note.objects.all().get(id=2).published_date
-        self.assertEqual(last_note.title, 'new_title')
-        self.assertEqual(last_note.text, 'new_text_xxxxxxx')
-        self.assertIsNotNone(last_note.published_date)
-        self.assertEqual(self.client.get(
-            reverse('note_detail', kwargs={'pk': last_note.pk})).status_code, 200)
-
-        # note was not added to DB, len(text) is not validate
-        self.client.post(reverse('add_note'), {'title': 'new_title2',
-                                               'text': 'new_text'})
-        last_note = Note.objects.all().last()
-        self.assertNotEqual(last_note.title, 'new_title2')
