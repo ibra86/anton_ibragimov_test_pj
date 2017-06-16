@@ -1,4 +1,4 @@
-local_settings.py
 db.sqlite3
 dump.rdb
+.DB_Store
 *.pyc
