@@ -1,8 +1,6 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 from models import Note, Book, BookContent
-from channels import Group
-from channels.test import ChannelTestCase
 
 # Create your tests here.
 
@@ -166,12 +164,3 @@ class TestNoteList(TestCase):
         num_books = len(Book.objects.all())
         note1.delete()
         self.assertEqual(num_books - 1, len(Book.objects.all()))
-
-
-class AsynTest(ChannelTestCase):
-
-    def test_try(self):
-        Group('test_group').add(u'test_channel')
-        Group('test_group').send({"value": 999})
-        result = self.get_next_message(u'test_channel', require=True)
-        self.assertEqual(result['value'], 999)

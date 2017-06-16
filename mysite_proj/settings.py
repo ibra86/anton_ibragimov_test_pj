@@ -1,5 +1,4 @@
 import os
-import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5neu=2_fhh9fy1wbep2dx-l^63vvjwh5zeq&hz790n6dit8i)5'
@@ -17,7 +16,6 @@ INSTALLED_APPS = [
     # CORS -
     # https://github.com/crs4/ome_seadragon/wiki/Enable-Django-CORS-(Cross-Origin-Resource-Sharing)-Headers-configuration
     'corsheaders',
-    'channels',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -31,7 +29,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'mysite_proj.middleware.RequestStatMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite_proj.urls'
@@ -45,7 +42,7 @@ CORS_ORIGIN_WHITELIST = (
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -60,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'mysite_proj.wsgi.application'
+WSGI_APPLICATION = 'mysite_proj.wsgi.application'
 
 
 # Database
@@ -93,17 +90,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-        },
-        "ROUTING": "mysite_proj.routing.channel_routing",
-    },
-}
-
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Berlin'
@@ -117,20 +103,4 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DATABASES['default'] = dj_database_url.config()
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-STATIC_ROOT = 'staticfiles'
-
 DEBUG = True
-
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass

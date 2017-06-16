@@ -53,14 +53,3 @@ class BookContent(models.Model):
 
     def __unicode__(self):
         return 'Note "%s" of Book "%s"' % (self.note, self.book)
-
-
-class RequestStat(models.Model):
-    line = models.TextField()
-    time = models.DateTimeField()
-    is_new = models.NullBooleanField(null=True)
-
-    def __unicode__(self):
-        return str(self.id) + " -- " + self.line + " -- "\
-            + str(self.time.strftime("%Y-%m-%d %H:%M:%S")) + " -- "\
-            + "is_new: " + str(self.is_new)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Note, Book, BookContent, RequestStat
+from .models import Note, Book, BookContent
 from .forms import NoteForm
 
 
@@ -37,4 +37,3 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(Note, NoteAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(BookContent)
-admin.site.register(RequestStat)

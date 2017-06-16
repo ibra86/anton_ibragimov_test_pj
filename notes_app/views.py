@@ -36,7 +36,3 @@ class AddNote(CreateView):
 
 class WidgetTemplate(TemplateView):
     template_name = 'widget_example.html'
-
-
-class RequestStat(TemplateView):
-    template_name = 'requests.html'
