@@ -47,7 +47,7 @@ class TestNoteList(TestCase):
                                                'text': 'new_text_xxxxxxx'})
         last_note = Note.objects.all().last()
         # print Note.objects.all().get(id=2).published_date
-        self.assertEqual(last_note.title, 'new_title'.upper())
+        self.assertEqual(last_note.title, 'new_title')
         self.assertEqual(last_note.text, 'new_text_xxxxxxx')
         self.assertIsNotNone(last_note.published_date)
         self.assertEqual(self.client.get(
@@ -58,9 +58,3 @@ class TestNoteList(TestCase):
                                                'text': 'new_text'})
         last_note = Note.objects.all().last()
         self.assertNotEqual(last_note.title, 'new_title2')
-
-    def test_upper_case_custom_field(self):
-        self.client.post(reverse('add_note'), {'title': 'new_title',
-                                               'text': 'new_text_xxxxxxx'})
-        last_note = Note.objects.all().last()
-        self.assertEqual(last_note.title, 'new_title'.upper())
