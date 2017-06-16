@@ -6,8 +6,6 @@ from django.core.urlresolvers import reverse
 
 class TestNoteList(TestCase):
 
-    fixtures = ['fixture_data.json']
-
     def setUp(self):
 
         self.client = Client()

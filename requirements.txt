@@ -35,4 +35,3 @@ Twisted==17.1.0
 txaio==2.7.1
 whitenoise==3.3.0
 zope.interface==4.4.1
-psycopg2==2.6.2
