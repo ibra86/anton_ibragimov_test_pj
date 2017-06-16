@@ -64,30 +64,3 @@ class TestNoteList(TestCase):
                                                'text': 'new_text_xxxxxxx'})
         last_note = Note.objects.all().last()
         self.assertEqual(last_note.title, 'new_title'.upper())
-
-    def test_number_of_notes(self):
-        # current number of notes
-        cur_notes_num = len(Note.objects.all())
-
-        # checking on different pages
-        response = self.client.get(self.home_url)
-        response2 = self.client.get(reverse('add_note'))
-        response3 = self.client.get(
-            reverse('note_detail', kwargs={'pk': 1}))
-        self.assertContains(response, '<span id="noteNumber" class="badge">' +
-                            str(cur_notes_num) + '</span>', html=True)
-        self.assertContains(response2, '<span id="noteNumber" class="badge">' +
-                            str(cur_notes_num) + '</span>', html=True)
-        self.assertContains(response3, '<span id="noteNumber" class="badge">' +
-                            str(cur_notes_num) + '</span>', html=True)
-
-        # if new note is added
-        self.client.post(
-            reverse('add_note'), {'title': 'new_title', 'text': 'new_text_xxxxxxx'})
-        add_to_notes_num = len(Note.objects.all())
-        self.assertEqual(cur_notes_num + 1, add_to_notes_num)
-
-        # if DB is empty
-        Note.objects.all().delete()
-        del_to_notes_num = len(Note.objects.all())
-        self.assertEqual(del_to_notes_num, 0)
