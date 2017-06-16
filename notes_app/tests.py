@@ -140,9 +140,3 @@ class TestNoteList(TestCase):
         self.assertIsNotNone(last_note.published_date)
         self.assertEqual(self.client.get(
             reverse('note_detail', kwargs={'pk': last_note.pk})).status_code, 200)
-        # no photo
-        self.assertFalse(bool(last_note.photo))
-
-        # ther is photo
-        note_pk1 = Note.objects.get(pk=1)
-        self.assertTrue(bool(note_pk1.photo))

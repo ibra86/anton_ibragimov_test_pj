@@ -15,4 +15,4 @@ class NoteForm(forms.ModelForm):
 
     class Meta:
         model = Note
-        fields = ["title", "text", "photo"]
+        fields = ["title", "text"]

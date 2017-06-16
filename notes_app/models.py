@@ -10,7 +10,6 @@ class Note(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
-    photo = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ['pk']
